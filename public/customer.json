@@ -1,0 +1,23 @@
+[
+    {
+        "_id": 1001,
+        "name": "Dicaprio",
+        "img": "https://i.ibb.co/7k9qDZy/deucapriyo.jpg",
+        "comment": "The battery backup is a bit clumsy but it is overall a good laptop. Recommended ",
+        "star": "4.5"
+    },
+    {
+        "_id": 1002,
+        "name": "van Don",
+        "img": "https://i.ibb.co/x7BsnVQ/men1.jpg",
+        "comment": "The battery backup is a bit clumsy but it is overall a good laptop. Recommended ",
+        "star": "4.00"
+    },
+    {
+        "_id": 1003,
+        "name": "Alexa",
+        "img": "https://i.ibb.co/9WwXJYt/men2.jpg",
+        "comment": "The battery backup is a bit clumsy but it is overall a good laptop. Recommended ",
+        "star": "5.00"
+    }
+]
