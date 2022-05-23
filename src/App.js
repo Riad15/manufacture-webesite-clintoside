@@ -1,14 +1,15 @@
 
-import { Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Home from './Components/Shared/Home/Home';
 import Navbar from './Components/Shared/Navbar';
 
 function App() {
   return (
-    <div >
-      {/* <h1 className='text-3xl font-bold'>ComputerS Machinery</h1> */}
+    <div className='' >
       <Navbar></Navbar>
       <Routes>
+        <Route path='/' element={<Home></Home>}></Route>
 
       </Routes>
     </div>

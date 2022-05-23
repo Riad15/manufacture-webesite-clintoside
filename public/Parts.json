@@ -1,0 +1,56 @@
+[
+    {
+        "_id": 101,
+        "name": "Computer Monitor",
+        "img": "https://i.ibb.co/cb8xn3x/monitor.jpg",
+        "description": "this is hp Monitor and this is amolete display. ",
+        "order_quantity": 10,
+        "available_quantity": 100,
+        "price": 5000
+    },
+    {
+        "_id": 102,
+        "name": "Graphics Card",
+        "img": "https://i.ibb.co/pLb3j8Q/graqpics-card.webp",
+        "description": "ZOTAC GAMING GEFORCE RTX 3080 AMP HOLO LHR 12GB GRAPHICS CARD",
+        "order_quantity": 50,
+        "available_quantity": 150,
+        "price": 12000
+    },
+    {
+        "_id": 103,
+        "name": "Hard Disk",
+        "img": "https://i.ibb.co/wB0HhbN/Hard-disk-drive.jpg",
+        "description": "Toshiba DT01ABA100V 1TB Surveillance Hard Drive",
+        "order_quantity": 100,
+        "available_quantity": 2300,
+        "price": 3400
+    },
+    {
+        "_id": 104,
+        "name": "Keyboard",
+        "img": "https://i.ibb.co/CmD1Q3r/keyboard.jpg",
+        "description": "",
+        "order_quantity": 250,
+        "available_quantity": 5000,
+        "price": 450
+    },
+    {
+        "_id": 105,
+        "name": "Computer Motherboard",
+        "img": "https://i.ibb.co/Rj1VqVg/Computer-motherboard.jpg",
+        "description": "MSI H310M PRO-VDH Plus Intel 9th Gen Motherboard",
+        "order_quantity": 50,
+        "available_quantity": 1000,
+        "price": 9500
+    },
+    {
+        "_id": 106,
+        "name": "Ram",
+        "img": "https://i.ibb.co/r4c4KF3/ram.jpg",
+        "description": "GeIL PRISTINE 4GB 2400MHz DDR4 RAM",
+        "order_quantity": 80,
+        "available_quantity": 4100,
+        "price": 1900
+    }
+]
