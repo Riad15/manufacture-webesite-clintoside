@@ -2,6 +2,8 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import DeshBoard from './Components/dashboard/DeshBoard';
+import MyOrders from './Components/dashboard/MyOrders';
+import MyProfile from './Components/dashboard/MyProfile';
 import Home from './Components/Home/Home';
 import Tools from './Components/Home/Tools';
 import Login from './Components/Login/Login';
@@ -20,8 +22,14 @@ function App() {
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/dashboard' element={<RequareAuth>
           <DeshBoard></DeshBoard>
-        </RequareAuth>}></Route>
+        </RequareAuth>}>
+          <Route index element={<MyProfile></MyProfile>}></Route>
+          <Route path='my-order' element={<MyOrders></MyOrders>}></Route>
+
+        </Route>
+
         <Route path='/register' element={<SignUp></SignUp>}></Route>
+
       </Routes>
 
 

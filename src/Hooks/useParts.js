@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 const useParts = () => {
     const [parts, setParts] = useState([]);
     useEffect(() => {
-        fetch('Parts.json')
+        fetch('http://localhost:5000/products')
             .then(res => res.json())
             .then(data => {
                 setParts(data);

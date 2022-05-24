@@ -21,13 +21,15 @@ const Navbar = () => {
                         <li><Link to='/login' >LogIn</Link></li>
                     </ul>
                 </div>
-                <a class="btn btn-ghost normal-case text-xl">Computer-Accessories</a>
+                <a class="btn btn-ghost normal-case text-xl" href='/'>Computer-Accessories</a>
             </div>
             <div class="navbar-end hidden lg:flex">
                 <ul class="menu menu-horizontal p-0">
                     <li><Link to='/' >Home</Link></li>
                     <li><Link to='/home' >Purchase</Link></li>
-                    <li><Link to='/dashboard' >Dashboard</Link></li>
+                    {
+                        user && <li><Link to='/dashboard' >Dashboard</Link></li>
+                    }
                     <li><Link to='/home' >Blogs</Link></li>
                     {
                         user ?
