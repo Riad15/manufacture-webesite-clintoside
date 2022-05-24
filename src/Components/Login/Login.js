@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import google from '../../Assets/picture/google.png'
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
@@ -9,41 +9,36 @@ const Login = () => {
     // input ref
     const emailRef = useRef('');
     const passwordRef = useRef('');
-
-
     // sign in with google
     const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
-
     // sign in with email and password
     const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
+    const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+
     let errorMassage;
 
 
     if (loading || gloading) {
         return <Loading></Loading>
     }
+
     if (error || gerror) {
         errorMassage = <p className='text-red-500'><small>{error?.message || gerror?.message}</small></p>
     }
 
     if (user || guser) {
-        console.log(user);
+        alert("successfully Log-In")
+        navigate(from, { replace: true });
     }
 
 
 
-    const formSubmit = (event) => {
+    const formSubmit = async (event) => {
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
-
-        if (!user) {
-            console.log(user);
-            window.alert('your email or password is incorrect');
-
-        } else {
-            signInWithEmailAndPassword(email, password);
-        }
-
+        await signInWithEmailAndPassword(email, password);
         event.preventDefault();
     }
     return (
