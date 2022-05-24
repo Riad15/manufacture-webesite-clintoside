@@ -1,8 +1,9 @@
 import React, { useRef } from 'react';
-import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import google from '../../Assets/picture/google.png'
 import auth from '../../firebase.init';
+import Loading from '../Shared/Loading';
 const SignUp = () => {
     const nameRef = useRef('');
     const emailRef = useRef('');
@@ -15,16 +16,29 @@ const SignUp = () => {
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
+    const [updateProfile, updateLoading, upadateError] = useUpdateProfile(auth);
+    let errorMassage;
+    if (error || gerror || upadateError) {
+        errorMassage = <p className='text-red-500'><small>{error?.message || gerror?.message || upadateError?.message}</small></p>
+    }
+    if (loading || gloading || updateLoading) {
+        return <Loading></Loading>
+    }
+    if (user || guser) {
+        console.log(user);
+        window.alert('succesfull your registration');
 
-    const handleRegister = (event) => {
+    }
+
+    const handleRegister = async (event) => {
         const name = nameRef.current.value;
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
 
-
         if (password.length >= 6) {
-            createUserWithEmailAndPassword(email, password);
-            window.alert('succesfull your registration');
+            await createUserWithEmailAndPassword(email, password);
+            await updateProfile({ displayName: name })
+
         }
         else {
             window.alert('password must be more then 6 digit')
@@ -63,6 +77,7 @@ const SignUp = () => {
                             </label>
                             <input ref={passwordRef} type="password" placeholder="Password" class="input input-bordered w-full max-w-xs" />
                         </div>
+                        {errorMassage}
                         <div className='w-full max-w-xs mx-auto m-4'>
                             <input type="submit" value="submit" class=" btn w-full max-w-xs" />
                         </div>

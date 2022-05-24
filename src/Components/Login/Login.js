@@ -15,7 +15,7 @@ const Login = () => {
     const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
 
     // sign in with email and password
-    const [signInWithEmailAndPassword, user, error, loading] = useSignInWithEmailAndPassword(auth);
+    const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
     let errorMassage;
 
 
@@ -23,10 +23,10 @@ const Login = () => {
         return <Loading></Loading>
     }
     if (error || gerror) {
-        return errorMassage = <p className='text-red-500'><small>{error?.message || gerror?.message}</small></p>
+        errorMassage = <p className='text-red-500'><small>{error?.message || gerror?.message}</small></p>
     }
 
-    if (user) {
+    if (user || guser) {
         console.log(user);
     }
 
@@ -59,7 +59,7 @@ const Login = () => {
 
                         <input ref={passwordRef} type="password" placeholder="Password" class="input input-bordered w-full max-w-xs" />
                     </div>
-
+                    {errorMassage}
                     <div className='w-full max-w-xs mx-auto m-4'>
                         <input type="submit" value="submit" class=" btn w-full max-w-xs" />
                     </div>
