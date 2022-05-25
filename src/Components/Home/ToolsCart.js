@@ -1,7 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const ToolsCart = (props) => {
     const { _id, name, img, description, order_quantity, available_quantity, price } = props.parts;
+    const navigate = useNavigate();
+    const buyProduct = (id) => {
+        navigate(`/home/all_products/${id}`)
+        console.log(id);
+    }
     return (
 
         <div class="card w-96 bg-base-100 mb-4 shadow-xl">
@@ -13,7 +19,7 @@ const ToolsCart = (props) => {
                 <p className='font-bold'>{description}</p>
                 <p>price: {price}</p>
                 <div class="card-actions">
-                    <button class="btn btn-warning">Buy Now</button>
+                    <button onClick={() => buyProduct(_id)} class="btn btn-warning">Buy Now</button>
                 </div>
             </div>
         </div>

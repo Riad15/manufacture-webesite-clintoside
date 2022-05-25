@@ -9,6 +9,7 @@ import Tools from './Components/Home/Tools';
 import Login from './Components/Login/Login';
 import RequareAuth from './Components/Login/RequareAuth';
 import SignUp from './Components/Login/SignUp';
+import ProductDetail from './Components/productDetails/ProductDetail';
 
 import Navbar from './Components/Shared/Navbar';
 
@@ -19,6 +20,11 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/all_products' element={<Tools></Tools>}></Route>
+        <Route path='/home/all_products/:id' element={
+          <RequareAuth>
+            <ProductDetail></ProductDetail>
+          </RequareAuth>
+        } ></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/dashboard' element={<RequareAuth>
           <DeshBoard></DeshBoard>

@@ -4,7 +4,6 @@ import CustomerReviewCart from './CustomerReviewCart';
 
 const CustomerReview = () => {
     const [review] = useCustomer();
-    console.log(review);
     return (
         <div>
             <h1 className='text-4xl text-center font-bold p-4 mb-6'>Customer FeedBack's</h1>

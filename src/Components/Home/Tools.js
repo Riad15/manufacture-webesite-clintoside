@@ -5,7 +5,6 @@ import ToolsCart from './ToolsCart';
 
 const Tools = () => {
     const [parts] = useParts();
-    console.log(parts);
     return (
         <div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:ml-10 mb-4 '>
