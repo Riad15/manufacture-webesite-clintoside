@@ -20,7 +20,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/all_products' element={<Tools></Tools>}></Route>
-        <Route path='/home/all_products/:id' element={
+        <Route path='/home/purchase/:id' element={
           <RequareAuth>
             <ProductDetail></ProductDetail>
           </RequareAuth>

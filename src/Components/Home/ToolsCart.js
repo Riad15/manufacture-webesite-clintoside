@@ -5,7 +5,7 @@ const ToolsCart = (props) => {
     const { _id, name, img, description, order_quantity, available_quantity, price } = props.parts;
     const navigate = useNavigate();
     const buyProduct = (id) => {
-        navigate(`/home/all_products/${id}`)
+        navigate(`/home/purchase/${id}`)
         console.log(id);
     }
     return (
