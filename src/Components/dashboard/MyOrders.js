@@ -1,22 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../../firebase.init';
+import React from 'react';
+import useMyOrderProducts from '../../Hooks/useMyOrderProducts';
 import MyOrderCart from './MyOrderCart';
 
 const MyOrders = () => {
-    const [myOrderProducts, setMyOrderProducts] = useState([]);
-    const [user] = useAuthState(auth);
-    const url = 'http://localhost:5000/my-products';
-    useEffect(() => {
-        fetch(url)
-            .then(res => res.json())
-            .then(data => {
-                console.log(user.email);
-                console.log("data from:", data);
-                const myOrders = data.filter(order => order.email === user.email);
-                setMyOrderProducts(myOrders);
-            })
-    }, [])
+    const [myOrderProducts] = useMyOrderProducts();
+
     return (
         <div>
             <h1 className='text-3xl font-bold text-yellow-300 mb-2'>My orders</h1>

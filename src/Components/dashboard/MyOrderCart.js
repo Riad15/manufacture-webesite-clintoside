@@ -1,12 +1,35 @@
 import React from 'react';
+import useMyOrderProducts from '../../Hooks/useMyOrderProducts';
 
 const MyOrderCart = (props) => {
     const { _id, img, name, price, order_quantity, total_price } = props.orders;
-    console.log(name);
+    const [myOrderProducts, setMyOrderProducts] = useMyOrderProducts();
+
+
+    const deleteItem = (id) => {
+        const deleteItem = window.confirm('delete item from  card ?');
+        if (deleteItem) {
+
+            const url = `http://localhost:5000/my-products/${id}`;
+            fetch(url, {
+                method: 'DELETE'
+
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    const reaming = myOrderProducts.filter(orderItem => orderItem._id !== id);
+                    setMyOrderProducts(reaming);
+                })
+            console.log(id);
+
+        }
+
+    }
     return (
         <tr>
             <th>
-                <button className='btn btn-ghost  p-2 text-xl'>delete item</button>
+                <button onClick={() => deleteItem(_id)} className='btn btn-ghost  p-2 text-xl'>delete item</button>
             </th>
             <td>
                 <div class="flex items-center space-x-3">
