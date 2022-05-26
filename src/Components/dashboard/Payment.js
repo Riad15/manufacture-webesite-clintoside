@@ -17,9 +17,8 @@ const Payment = () => {
             .then(data => {
                 setPayment(data);
             })
-        console.log(payment);
 
-    }, [])
+    }, [payment])
 
 
     return (
