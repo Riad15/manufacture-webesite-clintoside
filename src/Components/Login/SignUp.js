@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import google from '../../Assets/picture/google.png'
 import auth from '../../firebase.init';
 import useToken from '../../Hooks/useToken';
@@ -18,6 +18,7 @@ const SignUp = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
     const [updateProfile, updateLoading, upadateError] = useUpdateProfile(auth);
+    const navigate = useNavigate();
     const [token] = useToken(user || guser);
     let errorMassage;
     if (error || gerror || upadateError) {
@@ -29,6 +30,9 @@ const SignUp = () => {
     if (user || guser) {
         window.alert('succesfull your registration');
 
+    }
+    if (token) {
+        navigate('/')
     }
 
     const handleRegister = async (event) => {
