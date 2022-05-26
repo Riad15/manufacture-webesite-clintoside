@@ -1,9 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import useMyOrderProducts from '../../Hooks/useMyOrderProducts';
 
 const MyOrderCart = (props) => {
     const { _id, img, name, price, order_quantity, total_price } = props.orders;
     const [myOrderProducts, setMyOrderProducts] = useMyOrderProducts();
+    const navigate = useNavigate()
 
 
     const deleteItem = (id) => {
@@ -26,6 +28,14 @@ const MyOrderCart = (props) => {
         }
 
     }
+
+    const payOrderItem = (id) => {
+        navigate(`/dashboard/payment/${id}`);
+
+        console.log(id);
+
+    }
+
     return (
         <tr>
             <th>
@@ -49,7 +59,7 @@ const MyOrderCart = (props) => {
             </td>
             <td className='text-xl'>Total pay : {total_price}</td>
             <th>
-                <button class="btn btn-ghost  p-2 text-xl">Pay</button>
+                <button onClick={() => payOrderItem(_id)} class="btn btn-ghost p-2 text-xl">Pay</button>
             </th>
         </tr>
     );

@@ -4,6 +4,7 @@ import './App.css';
 import DeshBoard from './Components/dashboard/DeshBoard';
 import MyOrders from './Components/dashboard/MyOrders';
 import MyProfile from './Components/dashboard/MyProfile';
+import Payment from './Components/dashboard/Payment';
 import Home from './Components/Home/Home';
 import Tools from './Components/Home/Tools';
 import Login from './Components/Login/Login';
@@ -27,11 +28,10 @@ function App() {
           </RequareAuth>
         } ></Route>
         <Route path='/login' element={<Login></Login>}></Route>
-        <Route path='/dashboard' element={<RequareAuth>
-          <DeshBoard></DeshBoard>
-        </RequareAuth>}>
+        <Route path='/dashboard' element={<RequareAuth> <DeshBoard></DeshBoard> </RequareAuth>}>
           <Route index element={<MyProfile></MyProfile>}></Route>
           <Route path='my-order' element={<MyOrders></MyOrders>}></Route>
+          <Route path='payment/:id' element={<Payment></Payment>}></Route>
 
         </Route>
 

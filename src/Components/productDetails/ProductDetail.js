@@ -51,7 +51,7 @@ const ProductDetail = () => {
                 console.log(response);
             })
 
-        alert('successfully add to card your product and check the my order !')
+        alert('successfully add to card your product and check the my order page !')
 
     }
 
