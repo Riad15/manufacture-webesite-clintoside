@@ -46,7 +46,7 @@ const ProductDetail = () => {
             total_price: card * product.price
         }
 
-        await axios.put('http://localhost:5000/my-product', order)
+        await axios.put('http://localhost:5000/my-products', order)
             .then(response => {
                 console.log(response);
             })

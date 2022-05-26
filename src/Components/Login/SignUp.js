@@ -3,6 +3,7 @@ import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfil
 import { Link } from 'react-router-dom';
 import google from '../../Assets/picture/google.png'
 import auth from '../../firebase.init';
+import useToken from '../../Hooks/useToken';
 import Loading from '../Shared/Loading';
 const SignUp = () => {
     const nameRef = useRef('');
@@ -17,6 +18,7 @@ const SignUp = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
     const [updateProfile, updateLoading, upadateError] = useUpdateProfile(auth);
+    const [token] = useToken(user || guser);
     let errorMassage;
     if (error || gerror || upadateError) {
         errorMassage = <p className='text-red-500'><small>{error?.message || gerror?.message || upadateError?.message}</small></p>
@@ -25,7 +27,6 @@ const SignUp = () => {
         return <Loading></Loading>
     }
     if (user || guser) {
-        console.log(user);
         window.alert('succesfull your registration');
 
     }
