@@ -48,7 +48,7 @@ const ProductDetail = () => {
 
         await axios.put('http://localhost:5000/my-products', order)
             .then(response => {
-                console.log(response);
+
             })
 
         alert('successfully add to card your product and check the my order page !')

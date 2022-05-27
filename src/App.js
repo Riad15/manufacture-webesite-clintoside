@@ -5,6 +5,8 @@ import DeshBoard from './Components/dashboard/DeshBoard';
 import MyOrders from './Components/dashboard/MyOrders';
 import MyProfile from './Components/dashboard/MyProfile';
 import Payment from './Components/dashboard/Payment';
+import UpdateProdile from './Components/dashboard/UpdateProdile';
+import AllReview from './Components/Home/AllReview';
 import Home from './Components/Home/Home';
 import Tools from './Components/Home/Tools';
 import Login from './Components/Login/Login';
@@ -32,8 +34,10 @@ function App() {
           <Route index element={<MyProfile></MyProfile>}></Route>
           <Route path='my-order' element={<MyOrders></MyOrders>}></Route>
           <Route path='payment/:id' element={<Payment></Payment>}></Route>
+          <Route path='myupdate-profile/:email' element={<UpdateProdile></UpdateProdile>}></Route>
 
         </Route>
+        <Route path='/all-review' element={<AllReview></AllReview>} ></Route>
 
         <Route path='/register' element={<SignUp></SignUp>}></Route>
 
@@ -41,7 +45,7 @@ function App() {
 
 
 
-    </div>
+    </div >
   );
 }
 

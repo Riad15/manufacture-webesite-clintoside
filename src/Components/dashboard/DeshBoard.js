@@ -16,6 +16,7 @@ const DeshBoard = () => {
                     {/* <!-- Sidebar content here --> */}
                     <li>  <Link to="/dashboard">My Profile</Link> </li>
                     <li> <Link to="/dashboard/my-order">My Orders</Link> </li>
+                    <li> <Link to="/dashboard/my-order">My review</Link> </li>
                 </ul>
 
             </div>

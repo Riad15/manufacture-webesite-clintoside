@@ -1,9 +1,10 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import google from '../../Assets/picture/google.png'
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
+import useToken from '../../Hooks/useToken';
 
 const Login = () => {
     // input ref
@@ -13,11 +14,19 @@ const Login = () => {
     const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
     // sign in with email and password
     const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
+    const [token] = useToken(user || guser);
     const navigate = useNavigate();
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
+    useEffect(() => {
+        if (token) {
+            alert("successfully Log-In")
+            navigate(from, { replace: true });
+        }
+    }, [token, from, navigate])
 
     let errorMassage;
+
 
 
     if (loading || gloading) {
@@ -27,12 +36,6 @@ const Login = () => {
     if (error || gerror) {
         errorMassage = <p className='text-red-500'><small>{error?.message || gerror?.message}</small></p>
     }
-
-    if (user || guser) {
-        alert("successfully Log-In")
-        navigate(from, { replace: true });
-    }
-
 
 
     const formSubmit = async (event) => {

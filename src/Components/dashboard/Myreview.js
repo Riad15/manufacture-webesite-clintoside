@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MyProfileCard = () => {
+const Myreview = () => {
     return (
         <div>
 
@@ -8,4 +8,4 @@ const MyProfileCard = () => {
     );
 };
 
-export default MyProfileCard;
+export default Myreview;
