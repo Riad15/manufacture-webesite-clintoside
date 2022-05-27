@@ -11,7 +11,7 @@ const Payment = () => {
     const [payment, setPayment] = useState({});
 
     useEffect(() => {
-        const url = `http://localhost:5000/my-products/${id}`;
+        const url = `https://protected-waters-84927.herokuapp.com/my-products/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => {

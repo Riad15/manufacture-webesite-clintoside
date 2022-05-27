@@ -1,9 +1,11 @@
 
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import BlogSection from './Components/Blog/BlogSection';
 import DeshBoard from './Components/dashboard/DeshBoard';
 import MyOrders from './Components/dashboard/MyOrders';
 import MyProfile from './Components/dashboard/MyProfile';
+import Myreview from './Components/dashboard/Myreview';
 import Payment from './Components/dashboard/Payment';
 import UpdateProdile from './Components/dashboard/UpdateProdile';
 import AllReview from './Components/Home/AllReview';
@@ -33,6 +35,7 @@ function App() {
         <Route path='/dashboard' element={<RequareAuth> <DeshBoard></DeshBoard> </RequareAuth>}>
           <Route index element={<MyProfile></MyProfile>}></Route>
           <Route path='my-order' element={<MyOrders></MyOrders>}></Route>
+          <Route path='my-review' element={<Myreview></Myreview>}></Route>
           <Route path='payment/:id' element={<Payment></Payment>}></Route>
           <Route path='myupdate-profile/:email' element={<UpdateProdile></UpdateProdile>}></Route>
 
@@ -40,6 +43,7 @@ function App() {
         <Route path='/all-review' element={<AllReview></AllReview>} ></Route>
 
         <Route path='/register' element={<SignUp></SignUp>}></Route>
+        <Route path='/blog' element={<BlogSection></BlogSection>}></Route>
 
       </Routes>
 

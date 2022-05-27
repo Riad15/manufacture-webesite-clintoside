@@ -14,7 +14,7 @@ const ProductDetail = () => {
     const [taka, setTaka] = useState(0);
     const [user] = useAuthState(auth)
     useEffect(() => {
-        const url = `http://localhost:5000/products/${id}`
+        const url = `https://protected-waters-84927.herokuapp.com/products/${id}`
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -46,7 +46,7 @@ const ProductDetail = () => {
             total_price: card * product.price
         }
 
-        await axios.put('http://localhost:5000/my-products', order)
+        await axios.put('https://protected-waters-84927.herokuapp.com/my-products', order)
             .then(response => {
 
             })

@@ -23,8 +23,8 @@ const Navbar = () => {
                     <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 bg-yellow-400">
                         <li><Link to='/' >Home</Link></li>
                         <li><Link to='/home' >Purchase</Link></li>
-                        <li><Link to='/home' >Dashboard</Link></li>
-                        <li><Link to='/home' >Blogs</Link></li>
+                        <li><Link to='/dashboard' >Dashboard</Link></li>
+                        <li><Link to='/blog' >Blogs</Link></li>
                         <li><Link to='/login' >LogIn</Link></li>
                     </ul>
                 </div>
@@ -36,7 +36,7 @@ const Navbar = () => {
                     {
                         user && <li><Link to='/dashboard' >Dashboard</Link></li>
                     }
-                    <li><Link to='/home' >Blogs</Link></li>
+                    <li><Link to='/blog' >Blogs</Link></li>
                     {
                         user ?
                             <li><Link onClick={() => logOut(auth)} to='/login' >LogOut</Link></li>

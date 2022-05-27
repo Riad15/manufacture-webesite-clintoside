@@ -5,7 +5,7 @@ import auth from "../firebase.init";
 const useMyOrderProducts = () => {
     const [myOrderProducts, setMyOrderProducts] = useState([]);
     const [user] = useAuthState(auth);
-    const url = 'http://localhost:5000/my-products';
+    const url = 'https://protected-waters-84927.herokuapp.com/my-products';
     useEffect(() => {
         fetch(url)
             .then(res => res.json())

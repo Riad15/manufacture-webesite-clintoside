@@ -12,7 +12,7 @@ const MyOrderCart = (props) => {
         const deleteItem = window.confirm('delete item from  card ?');
         if (deleteItem) {
 
-            const url = `http://localhost:5000/my-products/${id}`;
+            const url = `https://protected-waters-84927.herokuapp.com/my-products/${id}`;
             fetch(url, {
                 method: 'DELETE'
 

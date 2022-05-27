@@ -11,7 +11,7 @@ const MyProfile = () => {
 
     useEffect(() => {
         const email = user?.email;
-        const url = `http://localhost:5000/users/${email}`
+        const url = `https://protected-waters-84927.herokuapp.com/users/${email}`
         fetch(url, {
             method: 'GET',
             headers: {

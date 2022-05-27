@@ -11,7 +11,7 @@ const CheckoutFrom = (props) => {
     const { total_price, name, email } = props.payment;
     useEffect(() => {
         if (total_price) {
-            const url = 'http://localhost:5000/create-payment-intent';
+            const url = 'https://protected-waters-84927.herokuapp.com/create-payment-intent';
             fetch(url, {
                 method: 'POST',
                 headers: {
